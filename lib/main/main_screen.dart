@@ -30,6 +30,17 @@ class _MainScreenState extends State<MainScreen> {
     final prefs = await SharedPreferences.getInstance();
     final double? height = prefs.getDouble('height');
     final double? weight = prefs.getDouble('weight');
+
+    if (height != null && weight != null) {
+      _heightController.text = '$height';
+      _weightController.text = '$weight';
+      print('키 : $height, 몸무게 : $weight');
+    }
+
+    initState() {
+      super.initState();
+      load();
+    }
   }
 
   @override
