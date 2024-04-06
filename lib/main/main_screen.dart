@@ -15,7 +15,6 @@ class _MainScreenState extends State<MainScreen> {
   final _weightController = TextEditingController();
   @override
   void dispose() {
-    save();
     _heightController.dispose();
     _weightController.dispose();
     super.dispose();
@@ -25,6 +24,12 @@ class _MainScreenState extends State<MainScreen> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setDouble('height', double.parse(_heightController.text));
     await prefs.setDouble('weight', double.parse(_weightController.text));
+  }
+
+  Future load() async {
+    final prefs = await SharedPreferences.getInstance();
+    final double? height = prefs.getDouble('height');
+    final double? weight = prefs.getDouble('weight');
   }
 
   @override
@@ -75,6 +80,7 @@ class _MainScreenState extends State<MainScreen> {
                   if (_formKey.currentState?.validate() == false ?? false) {
                     return;
                   }
+                  save();
 
                   Navigator.push(
                     context,
