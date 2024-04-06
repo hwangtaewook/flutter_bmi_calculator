@@ -13,6 +13,14 @@ class _MainScreenState extends State<MainScreen> {
   final _formKey = GlobalKey<FormState>();
   final _heightController = TextEditingController();
   final _weightController = TextEditingController();
+
+  @override
+  initState() {
+    super.initState();
+
+    load();
+  }
+
   @override
   void dispose() {
     _heightController.dispose();
@@ -35,11 +43,6 @@ class _MainScreenState extends State<MainScreen> {
       _heightController.text = '$height';
       _weightController.text = '$weight';
       print('키 : $height, 몸무게 : $weight');
-    }
-
-    initState() {
-      super.initState();
-      load();
     }
   }
 
