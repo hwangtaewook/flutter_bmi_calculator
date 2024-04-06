@@ -57,6 +57,7 @@ class _MainScreenState extends State<MainScreen> {
                   if (_formKey.currentState?.validate() ?? false) {
                     return;
                   }
+               nav
                   Navigator.push(
                     context,
                     MaterialPageRoute(
