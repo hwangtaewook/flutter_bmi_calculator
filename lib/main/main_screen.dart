@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bmi_calculator/result/result_screen.dart';
+import 'package:flutter_bmi_calculator/result/result_view_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatefulWidget {
@@ -102,6 +103,7 @@ class _MainScreenState extends State<MainScreen> {
                       builder: (context) => ResultScreen(
                         height: double.parse(_heightController.text),
                         weight: double.parse(_weightController.text),
+                        resultViewModel: ResultViewModel(),
                       ),
                     ),
                   );
